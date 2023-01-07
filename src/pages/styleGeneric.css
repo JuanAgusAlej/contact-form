@@ -14,3 +14,8 @@ body {
     color: #FF0000;
     font-weight: 700;
 }
+
+.requiredComplite{
+    border: 0px solid #FF0000;
+
+}

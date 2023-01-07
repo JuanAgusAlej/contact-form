@@ -3,10 +3,6 @@ import Label from '../Label/Label.jsx';
 import './styleInput.css';
 
 export const Input = ({ item, handleChange }) => {
-    const prueba = (e) => {
-        console.log(e.target.name);
-        console.log(e.target.value);
-  };
   return (
     <div className="text-start my-3 border p-3 ">
       <div className="d-flex">
@@ -20,7 +16,6 @@ export const Input = ({ item, handleChange }) => {
         id="validationCustom01"
         required={item.required}
       />
-      <div className="valid-feedback">Looks good!</div>
     </div>
   );
 };
