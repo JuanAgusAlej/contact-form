@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import React, { useEffect, useState } from 'react';
 import InformationCard from '../components/InformationCard/InformationCard.jsx';
 import Loading from '../components/Loading/Loading.jsx';

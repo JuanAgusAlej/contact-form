@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './btnStyle.css';
 
 export const BtnSubmit = ({ item, sendData }) => {
