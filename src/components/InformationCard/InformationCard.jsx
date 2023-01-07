@@ -5,7 +5,7 @@ const InformationCard = ({ infoPerson }) => {
   return (
     <div className="col mx-2 ">
       <div className="card text-dark bg-light mb-3 infoCardBorder">
-        <div className="card-header infoCardBorderTitle py-3 fs-4 ">
+        <div className="card-header text-center infoCardBorderTitle py-3 fs-4 ">
           <strong>{infoPerson.full_name}</strong>
         </div>
         <ul className="list-group list-group-flush text-start infoCardBorderList">
