@@ -1,0 +1,14 @@
+.infoCardBorder{
+    border: 0px ;
+    border-radius: 20px ;
+
+}
+.infoCardBorderTitle{
+    border-radius: 20px 20px 0px 0px !important ;
+    background-color: rgb(103, 58, 183);
+    color: white;
+}
+.infoCardBorderList{
+    border-radius: 0px 0px 20px 20px !important ;
+
+}
