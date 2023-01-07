@@ -14,7 +14,7 @@ const InformationCard = ({ infoPerson }) => {
               <p>
                 <strong>Correo:</strong>
               </p>
-              <span className='fs-6'>{infoPerson.email}</span>
+              <span className='fontSize'>{infoPerson.email}</span>
             </div>
           </li>
           <li className="list-group-item">
@@ -22,7 +22,7 @@ const InformationCard = ({ infoPerson }) => {
               <p>
                 <strong>Nacimiento:</strong>
               </p>
-              <span>{infoPerson.birth_date}</span>
+              <span className='fontSize'>{infoPerson.birth_date}</span>
             </div>
           </li>
           <li className="list-group-item">
@@ -30,7 +30,7 @@ const InformationCard = ({ infoPerson }) => {
               <p>
                 <strong>Pais:</strong>{' '}
               </p>
-              <span>{infoPerson.country_of_origin.toUpperCase()}</span>
+              <span className='fontSize'>{infoPerson.country_of_origin.toUpperCase()}</span>
             </div>
           </li>
         </ul>
