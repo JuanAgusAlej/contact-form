@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { BtnSubmit } from '../components/BtnSubmit/BtnSubmit.jsx';
 import Check from '../components/Check/Check.jsx';
 import { Input } from '../components/Input/Input.jsx';
@@ -9,36 +10,19 @@ import { addForm } from '../service/firebaseRequests';
 import FormSend from '../components/FormSend/FormSend.jsx';
 
 const FormPages = () => {
-  const [formValue, setFormValue] = useState({
-    full_name: '',
-    email: '',
-    birth_date: '',
-    country_of_origin: '',
-    terms_and_conditions: false,
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [sendData, setSendData] = useState(false);
   const [isSend, setIsSend] = useState(false);
-  const handleSubmit = async (e) => {
+  const onSubmit = async (data) => {
     setSendData(true);
-    e.preventDefault();
-    await addForm(formValue);
+    await addForm(data);
     setIsSend(true);
   };
-
-  const handleChange = (e) => {
-    if (e.target.name === 'terms_and_conditions') {
-      setFormValue({
-        ...formValue,
-        [e.target.name]: e.target.checked,
-      });
-    } else {
-      setFormValue({
-        ...formValue,
-        [e.target.name]: e.target.value,
-      });
-    }
-  };
-
+  console.log(errors);
   return (
     <>
       {!isSend ? (
@@ -54,24 +38,18 @@ const FormPages = () => {
               maxWidth: 640,
               margin: 12,
             }}
-            onSubmit={(e) => handleSubmit(e)}>
+            onSubmit={handleSubmit(onSubmit)}>
             {dbJSON.items.map((item, i) => {
               switch (item.type) {
                 case 'select':
-                  return (
-                    <Select item={item} handleChange={handleChange} key={i} />
-                  );
+                  return <Select item={item} register={register} errors={errors} key={i} />;
                 case 'checkbox':
-                  return (
-                    <Check item={item} handleChange={handleChange} key={i} />
-                  );
+                  return <Check item={item} register={register} errors={errors} key={i} />;
                 case 'submit':
-                  return <BtnSubmit item={item} sendData={sendData} key={i} />;
+                  return <BtnSubmit item={item} sendData={sendData} errors={errors} key={i} />;
 
                 default:
-                  return (
-                    <Input item={item} handleChange={handleChange} key={i} />
-                  );
+                  return <Input item={item} register={register} errors={errors} key={i} />;
               }
             })}
           </form>

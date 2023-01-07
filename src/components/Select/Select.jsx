@@ -1,11 +1,19 @@
 import React from 'react';
 import Label from '../Label/Label.jsx';
 
-const Select = ({ item, handleChange }) => {
+const Select = ({ item, register, errors }) => {
   return (
-    <div className="text-start my-3 border p-3">
-      <Label label={item.label} required={item.required}/>
-      <select onChange={(e) => handleChange(e)} name={item.name} className="form-select" id="validationCustom04" required>
+    <div className={ errors?.[item.name]?.message ? ('validation text-start my-3  p-3 ') : ('text-start my-3  p-3 border') }>
+      <Label label={item.label} required={item.required} />
+      <select
+        {...register(item.name, {
+          required: {
+            value: item.required,
+            message: 'Este campo es requerido',
+          },
+        })}
+        className="form-select"
+        id="validationCustom04">
         <option selected disabled value="">
           Choose...
         </option>
@@ -15,6 +23,9 @@ const Select = ({ item, handleChange }) => {
           </option>
         ))}
       </select>
+      <span className="text-danger text-small d-block mt-2">
+        {errors?.[item.name]?.message}
+      </span>
     </div>
   );
 };

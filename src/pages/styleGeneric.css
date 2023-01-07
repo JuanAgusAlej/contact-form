@@ -3,19 +3,13 @@ body {
 }
 
 .border {
-    border: 0px solid #1C6EA4;
+    border: 1px solid #dadce0;;
     border-radius: 20px;
     background-color: #fff;
 }
 
-.required {
-    font-family: Georgia, serif;
-    font-size: 25px;
-    color: #FF0000;
-    font-weight: 700;
-}
-
-.requiredComplite{
-    border: 0px solid #FF0000;
-
+.validation{
+    border: 1px solid #d93025;
+    border-radius: 20px;
+    background-color: #fff;
 }
