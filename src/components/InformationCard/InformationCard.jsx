@@ -14,7 +14,7 @@ const InformationCard = ({ infoPerson }) => {
               <p>
                 <strong>Correo:</strong>
               </p>
-              <span>{infoPerson.email}</span>
+              <span className='fs-6'>{infoPerson.email}</span>
             </div>
           </li>
           <li className="list-group-item">
