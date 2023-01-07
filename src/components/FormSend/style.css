@@ -2,4 +2,6 @@
     border-top: 15px solid red;
     border-radius: 20px;
     background-color: #fff;
+  box-sizing: content-box;
+
 }
