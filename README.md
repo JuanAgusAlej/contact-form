@@ -26,5 +26,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `Configure Firebase`
 
--Rename .templet.env.local to .env.local.
+-Rename .templet.env.local to .env.local.\
 -Complete with the data given by firestore.
