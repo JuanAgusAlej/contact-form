@@ -10,6 +10,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useUserDataToggleContex } from '../../providers/UserProvider.jsx';
 import { close } from '../../service/closeSession';
+import './style.css';
 
 const Loguin = () => {
   const provider = new GoogleAuthProvider();
@@ -34,12 +35,12 @@ const Loguin = () => {
   };
 
   return (
-    <>
-      <div className="boxFont">
-        <p className="mt-3 mb-0">Agenda de contacto</p>
+    <div className="loguin ">
+      <div className="boxLoguin">
+        <p>Agenda de contacto</p>
+        <GoogleButton className='google' type="dark" onClick={register} />
       </div>
-      <GoogleButton className="boxItems" type="dark" onClick={register} />
-    </>
+    </div>
   );
 };
 

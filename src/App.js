@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FormPages from './pages/FormPages.jsx';
 import FormPagesInfo from './pages/FormPagesInfo.jsx';

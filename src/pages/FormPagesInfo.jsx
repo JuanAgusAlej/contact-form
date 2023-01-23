@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AccordinInfo from '../components/AccordinInfo/AccordinInfo.jsx';
 import InformationCard from '../components/InformationCard/InformationCard.jsx';
 import Loading from '../components/Loading/Loading.jsx';
 import { useUserDataContex } from '../providers/UserProvider.jsx';
@@ -29,23 +30,23 @@ const FormPagesInfo = () => {
   }, []);
 
   return (
-    <>
+    <div className="boxPageInfo col-6 offset-3">
       <h5 className="card-title text-center my-5 fs-1">
         Usuario: {userData.displayName}
       </h5>
-      <a className="btn btn-primary" onClick={singOut}>
+      {/* <a className="btn btn-primary" onClick={singOut}>
         cerrar
-      </a>
+      </a> */}
       {infoForm.loading ? (
         <Loading />
       ) : (
-        <div className="row row-cols-md-5 g-3 mx-5 justify-content-center">
+        <div className="accordion accordion-flush" id="accordionFlushExample">
           {infoForm.datas.map((infoPerson) => (
-            <InformationCard key={infoPerson.id} infoPerson={infoPerson} />
+            <AccordinInfo key={infoPerson.id} infoPerson={infoPerson} />
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

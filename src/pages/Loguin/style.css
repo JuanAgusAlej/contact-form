@@ -1,16 +1,33 @@
-.boxFont{
-    margin: 0;
+.loguin {
+    margin-top: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boxLoguin {
+    border: 1px solid #dadce0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-sizing: content-box;
+    padding: 20px;
+}
+
+.loguin p {
     font-family: Georgia, serif;
-    font-size: 28px;
+    font-size: 20px;
     letter-spacing: 2px;
-    word-spacing: 2px;
     color: #1032a1;
     font-weight:600;
     text-decoration: rgb(68, 68, 68);
     font-style: normal;
     font-variant: normal;
-    text-transform: none; 
+    text-transform: none;
 }
-.boxFont img {
-    max-width: 10%;
+.google {
+    border-radius: 10px !important;
+    padding-inline: 10px;
+}
+.google div {
+    border-radius: 10px !important;
 }

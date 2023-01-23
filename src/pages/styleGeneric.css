@@ -17,5 +17,12 @@ body {
     border-radius: 20px;
     background-color: #fff;
   box-sizing: content-box;
+}
+.boxPageInfo{
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  background-color: #fff;
+  box-sizing: content-box;
+  padding: 20px;
 
 }
