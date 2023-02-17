@@ -28,3 +28,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 -Rename .templet.env.local to .env.local.\
 -Complete with the data given by firestore.
+
+### `Cifrado y desifrado de informacion`
+-https://www.npmjs.com/package/crypto-js

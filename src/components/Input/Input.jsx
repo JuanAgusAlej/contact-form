@@ -10,9 +10,13 @@ export const Input = ({ item, register, errors }) => {
     }
   }, []);
   return (
-    <div className={ errors?.[item.name]?.message ? ('validation text-start my-3  p-3 ') : ('text-start my-3  p-3 border') }>
+    <div className="col-12" style={{ maxWidth: 500 }}>
       <div className="d-flex">
-        <Label label={item.label} required={item.required} />
+        <Label
+          label={item.label}
+          required={item.required}
+          errors={errors?.[item.name]?.message}
+        />
       </div>
       <input
         {...register(item.name, {
@@ -23,10 +27,14 @@ export const Input = ({ item, register, errors }) => {
           pattern: isEmail,
         })}
         type={item.type}
-        className="form-control borderInput"
+        className={
+          errors?.[item.name]?.message
+            ? 'form-control borderInput borderInputValidation'
+            : 'form-control borderInput'
+        }
         id="validationCustom01"
       />
-      <span className='text-danger text-small d-block mt-2'>
+      <span className="text-danger text-small d-block mt-2">
         {errors?.[item.name]?.message}
       </span>
     </div>

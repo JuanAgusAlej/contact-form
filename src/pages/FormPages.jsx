@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { BtnSubmit } from '../components/BtnSubmit/BtnSubmit.jsx';
-import Check from '../components/Check/Check.jsx';
 import { Input } from '../components/Input/Input.jsx';
-import Select from '../components/Select/Select.jsx';
 import dbJSON from '../db/db.json';
 import './styleGeneric.css';
 import { addForm } from '../service/firebaseRequests';
-import FormSend from '../components/FormSend/FormSend.jsx';
+import { useUserDataContex } from '../providers/UserProvider.jsx';
 
 const FormPages = () => {
   const {
@@ -15,17 +14,17 @@ const FormPages = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const userData = useUserDataContex();
+  const navigate = useNavigate();
   const [sendData, setSendData] = useState(false);
-  const [isSend, setIsSend] = useState(false);
   const onSubmit = async (data) => {
     setSendData(true);
-    await addForm(data);
-    setIsSend(true);
+    await addForm(data, userData);
+    navigate('/contact');
   };
   console.log(errors);
   return (
     <>
-      {!isSend ? (
         <div
           style={{
             display: 'flex',
@@ -39,24 +38,34 @@ const FormPages = () => {
               margin: 12,
             }}
             onSubmit={handleSubmit(onSubmit)}>
-            {dbJSON.items.map((item, i) => {
-              switch (item.type) {
-                case 'select':
-                  return <Select item={item} register={register} errors={errors} key={i} />;
-                case 'checkbox':
-                  return <Check item={item} register={register} errors={errors} key={i} />;
-                case 'submit':
-                  return <BtnSubmit item={item} sendData={sendData} errors={errors} key={i} />;
-
-                default:
-                  return <Input item={item} register={register} errors={errors} key={i} />;
-              }
-            })}
+            <div className="container text-center">
+              <div className="row justify-content-md-center border py-3">
+                {dbJSON.items.map((item, i) => {
+                  switch (item.type) {
+                    case 'submit':
+                      return (
+                        <BtnSubmit
+                          item={item}
+                          sendData={sendData}
+                          errors={errors}
+                          key={i}
+                        />
+                      );
+                    default:
+                      return (
+                        <Input
+                          item={item}
+                          register={register}
+                          errors={errors}
+                          key={i}
+                        />
+                      );
+                  }
+                })}
+              </div>
+            </div>
           </form>
         </div>
-      ) : (
-        <FormSend />
-      )}
     </>
   );
 };

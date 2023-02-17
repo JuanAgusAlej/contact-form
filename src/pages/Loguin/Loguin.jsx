@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserDataToggleContex } from '../../providers/UserProvider.jsx';
 import { close } from '../../service/closeSession';
 import './style.css';
+import { loguin } from '../../service/loguin';
 
 const Loguin = () => {
   const provider = new GoogleAuthProvider();
@@ -19,13 +20,8 @@ const Loguin = () => {
   const navigate = useNavigate();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const table = user.email.split('@').shift();
-      const data = {
-        id: user.uid,
-        displayName: user.displayName,
-        email: user.email,
-        table,
-      };
+      console.log(user);
+      const data = loguin(user);
       setUserData(data);
       navigate('contact');
     }

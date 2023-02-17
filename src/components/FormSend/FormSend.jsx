@@ -23,7 +23,7 @@ const FormSend = () => {
         <p className="card-text mt-3">
           Gracias por enviar su información de contacto.
         </p>
-        <Link to="/formInfo">Ver otros contactos</Link>
+        <Link to="/contact">Ver otros contactos</Link>
       </div>
     </div>
   );

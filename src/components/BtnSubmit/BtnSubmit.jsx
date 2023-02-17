@@ -5,13 +5,13 @@ export const BtnSubmit = ({ item, sendData }) => {
   return (
     <>
       {!sendData ? (
-        <div className="text-start my-3">
+        <div className="text-end my-3">
           <button className="btn btn-primary btnColor" type={item.type}>
             {item.label}
           </button>
         </div>
       ) : (
-        <div className="text-start my-3">
+        <div className="text-end my-3">
           <button
             className="btn btn-primary btnColor"
             disabled

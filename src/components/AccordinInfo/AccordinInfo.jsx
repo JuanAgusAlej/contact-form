@@ -1,4 +1,6 @@
 import React from 'react';
+import CardContact from '../CardContact/CardContact.jsx';
+import './style.css';
 
 const AccordinInfo = ({ infoPerson }) => {
   console.log(infoPerson);
@@ -20,11 +22,7 @@ const AccordinInfo = ({ infoPerson }) => {
         className="accordion-collapse collapse"
         aria-labelledby="flush-headingOne"
         data-bs-parent="#accordionFlushExample">
-        <div className="accordion-body">
-          Placeholder content for this accordion, which is intended to
-          demonstrate the <code>.accordion-flush</code> class. This is the first
-          accordion body.
-        </div>
+        <CardContact infoPerson={infoPerson} />
       </div>
     </div>
   );
